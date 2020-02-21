@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Xiaomi A1",
+    "year": 2018,
+    "price": 5000
+  },
+  {
+    "name": "Xiaomi Note 4",
+    "year": 2014,
+    "price": 2000
+  },
+  {
+    "name": "PocoPhone F1",
+    "year": 2017,
+    "price": 9000
+  }
+]
