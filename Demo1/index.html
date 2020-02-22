@@ -11,16 +11,30 @@
 <div class="task1" style="padding: 5px; border: 2px solid black; margin-bottom: 10px">
     <h2>Task 1</h2>
     <button id="createTableCheese">Создать шахматную доску</button>
+    <label for="cheeseWidth">Ширина доски</label>
     <input type="text" id="cheeseWidth">
+    <label for="cheeseHeight">Высота доски</label>
     <input type="text" id="cheeseHeight">
+    <label for="cheeseChar">Символ</label>
     <input type="text" id="cheeseChar">
     <pre id="cheese"></pre>
 </div>
 <div class="task2" style="padding: 5px; border: 2px solid black;">
     <h2>Task 2</h2>
-
+    <button id="analyseCove">Анализировать конверты</button>
+    <label for="widthFirstCove">Ширина конверта #1</label>
+    <input type="text" id="widthFirstCove">
+    <label for="heightFirstCove">Высота конверта #1</label>
+    <input type="text" id="heightFirstCove">
+    <label for="widthSecondCove">Ширина конверта #2</label>
+    <input type="text" id="widthSecondCove">
+    <label for="heightSecondCove">Высота конверта #2</label>
+    <input type="text" id="heightSecondCove">
+    <h3>Вложение возможно в конверт под номером [<span id="coveNumber">?</span>].</h3>
+    <h4>Если 0, то вложение не возможно!</h4>
 </div>
 <script src="./src/task1.js"></script>
+<script src="./src/task2.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
