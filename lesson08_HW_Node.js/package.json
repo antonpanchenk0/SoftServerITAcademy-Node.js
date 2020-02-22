@@ -1,0 +1,17 @@
+{
+  "name": "lesson08_hw_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "apanchenko",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "uuid": "^3.4.0"
+  }
+}
