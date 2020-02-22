@@ -5,7 +5,39 @@
     <title>lesson 09</title>
 </head>
 <body>
+<div>
+    <button onclick="loadUsers('https://randomuser.me/api/?results=1000')">Get Data about Users</button>
+    <div style="padding: 20px 0">
+        <label for="younger">Самый молодой юзер</label>
+        <input type="text" id="younger" disabled>
+    </div>
+    <div style="padding: 20px 0">
+    <label for="older">Самый старший юзер</label>
+    <input type="text" id="older" disabled>
+    </div>
+    <div style="padding: 20px 0">
+    <label for="manCounter">Количество мужчин в выборке</label>
+    <input type="text" id="manCounter" disabled>
+    </div>
+    <div style="padding: 20px 0">
+    <label for="womenCounter">Количество женщин в выборке</label>
+    <input type="text" id="womenCounter" disabled>
+    </div>
+    <div style="padding: 20px 0">
+    <label for="avgManAge">Средний возраст мужчин в выборке</label>
+    <input type="text" id="avgManAge" disabled>
+    </div>
+    <div style="padding: 20px 0">
+    <label for="avgWomanAge">Средний возраст женщин в выборке</label>
+    <input type="text" id="avgWomanAge" disabled>
+    </div>
+    <div style="padding: 20px 0">
+    <label for="biggestCity">Город с наибольшим количеством юзеров в выборке</label>
+    <input type="text" id="biggestCity" disabled>
+    </div>
+</div>
 <script src="ticTacToeCheck.js"></script>
 <script src="battleShips.js"></script>
+<script src="randomUserAPI.js"></script>
 </body>
 </html>
