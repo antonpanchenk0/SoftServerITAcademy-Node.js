@@ -19,7 +19,7 @@
     <input type="text" id="cheeseChar">
     <pre id="cheese"></pre>
 </div>
-<div class="task2" style="padding: 5px; border: 2px solid black;">
+<div class="task2" style="padding: 5px; border: 2px solid black; margin-bottom: 10px">
     <h2>Task 2</h2>
     <button id="analyseCove">Анализировать конверты</button>
     <label for="widthFirstCove">Ширина конверта #1</label>
@@ -33,8 +33,28 @@
     <h3>Вложение возможно в конверт под номером [<span id="coveNumber">?</span>].</h3>
     <h4>Если 0, то вложение не возможно!</h4>
 </div>
+<div class="task3" style="padding: 5px; border: 2px solid black; margin-bottom: 10px">
+    <h2>Task 3</h2>
+    <label for="nameTriangle">Название треугольника</label>
+    <input type="text" id="nameTriangle" maxlength="3">
+    <label for="firstSideTriangle">Размер первой стороны</label>
+    <input type="text" id="firstSideTriangle">
+    <label for="secondSideTriangle">Размер второй стороны</label>
+    <input type="text" id="secondSideTriangle">
+    <label for="thirdSideTriangle">Размер третьей стороны</label>
+    <input type="text" id="thirdSideTriangle">
+    <div style="display: flex; justify-content: flex-start; align-items: center">
+        <button id="addTriangle" style="margin-right: 20px;">Добавить треуголник в массив</button>
+        <h3>[<span id="trList"></span>]</h3>
+    </div>
+    <div style="display: flex; justify-content: flex-start; align-items: center">
+        <button id="sortTriangle">Получить отсортированные треугольники</button>
+        <h3>[<span id="trListSort"></span>]</h3>
+    </div>
+</div>
 <script src="./src/task1.js"></script>
 <script src="./src/task2.js"></script>
+<script src="./src/task3.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
