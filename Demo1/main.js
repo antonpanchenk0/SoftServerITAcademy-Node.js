@@ -8,7 +8,7 @@ document.getElementById('analyseCove').addEventListener('click', e=>{
 });
 
 let trArray = [];
-
+let trFlag = false;
 document.getElementById('addTriangle').addEventListener('click', e=>{
     let verticals = nameTriangle.value.toLowerCase().split('');
     let obj = {
@@ -18,6 +18,7 @@ document.getElementById('addTriangle').addEventListener('click', e=>{
     obj[verticals[1]] = +secondSideTriangle.value;
     obj[verticals[2]] = +thirdSideTriangle.value;
     trArray.push(obj);
+    if(trFlag) {document.getElementById('trList').innerHTML = '';}
     document.getElementById('trList').innerHTML += `${nameTriangle.value}, `;
 })
 document.getElementById('sortTriangle').addEventListener('click', e=>{
@@ -25,4 +26,5 @@ document.getElementById('sortTriangle').addEventListener('click', e=>{
     res.join(', ');
     console.log(res);
     document.getElementById('trListSort').innerHTML = res;
+    trFlag = true;
 })
