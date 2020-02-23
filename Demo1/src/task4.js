@@ -1,4 +1,5 @@
 function checkPolindrome(num) {
+    //Если строка содержит буквы, выдаем исключение
     if(isNaN(Number(num))) return console.log(new Error('Аргумент не является числом. checkPolyndrom(Number)'));
     if(num.length < 2) return console.log(new Error('Число не может быть меньше 10.'));
     if(!Number.isInteger(+num)) return console.log(new Error('Число должно быть целым!'));
