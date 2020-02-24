@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+
+    <TITLE>формулы вида а1 ? а2 ? а3 ? ... ? an = b</TITLE>
+
+    <script src="arrform.js">
+
+    </script>
+
+    <script language="JavaScript">
+
+        <!—- //
+
+        var sres=""
+
+        var k            // Число комбинаций знаков
+
+        var b            // Значение формулы
+
+        var n= v.length  // Реальное число переменных
+
+        var varsh=0      // Количество найденных решений
+
+        // Функция Vform вычисляет значение формулы
+
+        // при заданной комбинации знаков
+
+        function Vform()
+
+        { var s = Number (v[0])
+
+            for (var i = 0; i <= n-2; i++)
+
+                switch (z[i])
+
+                { case "+": s += Number) v[i+l]); break
+
+        case "-": s -= Number( v[i+l]); break }
+
+        return s
+
+        }
+
+        // Функция WriteForm выводит формулу
+
+        function WriteForm()
+
+        { var str= v[0]
+
+            for ( var i = 0 ; i <= n-2; i++)
+
+                switch ( z[i] )
+
+                { case "+": str +="+"+ v[i+l]; break
+
+                    case "-": str +="-"+ v[i+l]; break
+
+                }
+
+            str += "="+b+"\r\n"
+
+            return str
+
+        }
+
+        // Функция NewSign формирует следующую комбинацию знаков
+
+        function NewSign()
+
+        { var i=n-2
+
+            while (i>=0)
+
+            { if (z [i]=="+")
+
+            { z[i] = "-"; i— }
+
+            else
+
+            { z[i] = "+"; break }
+
+            }
+
+        }
+
+        // Функция InitSign формирует начальную комбинацию знаков
+
+        function InitSign()
+
+        { for (var i =0; i<= n-2; i++)
+
+        { z[i] = "-" }
+
+        }
+
+        // Функция formula просматривает все варианты и отбирает
+
+        // удовлетворяющие условию
+
+        function formula (obj)
+
+        ( b= obj.valform.value
+
+        if (b=="")
+
+            alert("Вы не ввели значение формулы")
+
+        else
+
+        { k = Math.pow(2,n-l)
+
+            sres=""
+
+            varsh=0
+
+            InitSign()
+
+            for (var t = 1; t<= k; t++)
+
+            { if (VformO ==Number(b))
+
+            { sres += WriteForm(); varsh++ }
+
+                NewSign()
+
+            }
+
+            if (varsh==0)
+
+                sres= "таких формул нет"
+
+            obj.result.value=sres
+
+            obj.datal.value=varsh
+
+        }
+
+        }
+
+        function writearr(obj)
+
+        {obj.vararray.value=v}
+
+        //-—>
+
+    </script>
+
+</HEAD>
+
+<BODY bgcolor=silver>
+
+<Н4>Формулы вида al?a2?a3?...?an=b</H4>
+
+    <FORM name="form1">
+
+<pre>
+
+<input type="button" value=MaccnB onClick="writearr(form1)">
+
+Значения элементов: <input type="text" size=20 name="vararray">
+
+Значение формулы: <input type="text" size=20 name="valform"><BR>
+
+<input type="button" value=0пpeдeлить onClick="formula(forml)">
+
+Количество формул: <input type="text" size=20 name="datal">
+
+Найденные формулы:
+
+<textarea cols=30 rows=3 name="result" > </textarea>
+
+</pre>
+
+        <input type="reset" value=Отменить onClick= 'sres=""; varsh=0 '>
+
+    </FORM>
+
+</BODY>
+
+</HTML>
