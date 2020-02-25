@@ -1,31 +1,47 @@
+/**
+ * Функция для вычисления самого длинного полиндрома в числе
+ * @param str число из которого будем вычислять полиндромы
+ * @returns {string|{reason: string, status: string}}
+ */
 function checkPolindrome(str) {
-    //Если строка содержит буквы, выдаем исключение
-    if(isNaN(Number(str))) return console.log(new Error('Аргумент не является числом. checkPolyndrom(Number)'));
-    if(str.length < 2) return console.log(new Error('Число не может быть меньше 10.'));
-    if(!Number.isInteger(+str)) return console.log(new Error('Число должно быть целым!'));
-    let positions = [];
-    positions.push(finder(str));
-    console.log(positions)
+    if(isNaN(Number(str))) return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
+    if(str.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};
+    if(!Number.isInteger(+str)) return {status: 'failed', reason: 'Число должно быть целым!'};
+    str = str.toString();
+    let res = finder(str);
+    res = res.split('$');
+    res.pop();
+    res.sort((a,b)=>{
+        return a.length <= b.length ? 1 : -1;
+    });
+    return res[0];
 }
 
-function finder(str){
-    const strLength = str.length;
-    let tempPosition;
-    let posittions = []
-    for(let i = 0; i < strLength; i++){
-        if(str[i]==str[i+1]){
-            for(let j = 0;j < strLength; j++){
+/**
+ * Функция поиска полиндромов
+ * Вовзращяет сроку со всеми найдеными полиндромами разделенными $
+ * @param str
+ * @param res
+ * @returns {string}
+ */
+function finder(str, res = ''){
+    let tempPosition = [];
+    let findPolindrome = '';
+    for(let i =0; i < str.length - 1; i++){
+        if(str[i] == str[i+1]){
+            for(let j = 0; i-j >= 0 && i+j+1 <= str.length; j++){
                 if(str[i-j] == str[i+j+1]){
-                    tempPosition = [i-j,i+j+1];
+                    tempPosition = [i-j, i+j+1];
                 } else{
-                    let findStr = str.split('').splice(tempPosition[0], tempPosition[1] - tempPosition[0] + 1).join('');
-                    str = str.replace(findStr, '');
-                    posittions.push(finder(str));
+                    findPolindrome = str.split('').splice(tempPosition[0], tempPosition[1] - tempPosition[0] + 1).join('');
+                    str = str.replace(findPolindrome, '');
+                    res += `${findPolindrome}$`;
+                    break;
                 }
             }
-            return tempPosition;
+            tempPosition = [];
+            findPolindrome = '';
         }
     }
+    return res;
 }
-
-console.log(checkPolindrome('1725445213489980'))
