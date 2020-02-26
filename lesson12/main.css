@@ -1,0 +1,41 @@
+#modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(127,7,124,.4);
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.light{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.light .circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 1px solid black;
+    background: gray;
+}
+.light #switch{
+    width: 50px;
+    height: 50px;
+    background: gray;
+    border: 1px solid black;
+    font-size: 24px;
+    margin-left: 25px;
+}
+.light #switch:hover{
+    cursor: pointer;
+}
+.positions{
+    margin-top: 25px;
+}
