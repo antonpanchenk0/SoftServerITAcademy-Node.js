@@ -51,4 +51,3 @@ function getLuckyTicket(obj){
     resultObj.hardCount == resultObj.simpleCount ? resultObj.winner = 'Draw :)' : resultObj;
     return resultObj;
 }
-getLuckyTicket({min: 212325, max: 452370})
