@@ -1,7 +1,13 @@
+/**
+ * Функция подсчитывает количество счасливых билетов 2 методами
+ * Возвращает объект с количеством счастливых билетов
+ * @param obj
+ * @returns {{reason: string, status: string}|{winner: undefined, hardCount: number, simpleCount: number}}
+ */
 function getLuckyTicket(obj){
-    if(!Number(obj.max) || !Number(obj.min)) return new Error('Ошибка данных. Строка содержит символы. obj{min:string|number, max:string|number}');
-    if(Number(obj.max) < Number(obj.min)) return new Error('Ошибка данных. Min значение не может быть больше Max');
-    if(obj.max.toString().length > 6 || obj.min.toString().length > 6) return new Error('Ошибка данных. Длина номера билета не может быть более чем 6 цифер.');
+    if(!Number(obj.max) || !Number(obj.min)) return {status: 'failed', reason: "Ошибка данных. Строка содержит символы. obj{min:string|number, max:string|number}"};
+    if(Number(obj.max) < Number(obj.min)) return {status: 'failed', reason: 'Ошибка данных. Min значение не может быть больше Max'};
+    if(obj.max.toString().length > 6 || obj.min.toString().length > 6) return {status : 'failed', reason: 'Ошибка данных. Длина номера билета не может быть более чем 6 цифер.'};
     let resultObj = {
         winner: undefined,
         simpleCount: 0,
