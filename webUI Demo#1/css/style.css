@@ -43,6 +43,10 @@
 .wrap .wrap-window .task{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 .wrap .wrap-window .task .task-title{
     font-size: 32px;
@@ -60,7 +64,7 @@
 .wrap .wrap-window .data-block{
     width: 100%;
     height: auto;
-    margin-top: 15px;
+    margin: 15px 0;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     display: flex;
@@ -85,5 +89,40 @@
     border: none;
     border-bottom: 2px solid black;
     padding: 2px;
-    color: #1e1b1f;
+    color: #1f1f1f;
+    font-weight: bold;
+}
+.wrap .wrap-window button{
+    font-size: 16px;
+    color: #ffffff;
+    background: #1f1f1f;
+    border-radius: 5px;
+    border: 2px solid #1f1f1f;
+    padding: 10px;
+    transition: 0.5s;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.wrap .wrap-window button:hover{
+    color: #1f1f1f;
+    background: #ffffff;
+    cursor: pointer;
+}
+.wrap .wrap-window .result-block{
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+    border-top: 2px solid black;
+    padding: 5px;
+}
+.wrap .wrap-window .result-block h3{
+    font-size: 21px;
+    color: #1f1f1f;
+    font-weight: bold;
+    text-align: left;
+}
+.wrap .wrap-window .result-block .function-result{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
