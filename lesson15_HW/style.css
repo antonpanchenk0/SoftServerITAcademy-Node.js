@@ -1,0 +1,8 @@
+.checked{
+    text-decoration: line-through;
+    list-style-type: disc;
+}
+li{
+    cursor: pointer;
+    list-style-type: circle;
+}
