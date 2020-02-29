@@ -7,9 +7,9 @@
  */
 function createCheeseBoard(height, width, char) {
     if(arguments.length != 3) return {status: 'failed', reason: "Не верные параметры функции. createCheeseBoard(height, width, char)."};
-    if(width > 50 || width == 0 || height > 50 || height == 0) return {status: 'failed', reason: "Ошибка значений высоты и/или ширены. Допустимые значения от 1 до 50 включительно."};
+    if(width > 50 || width == 0 || height > 50 || height == 0) return {status: 'failed', reason: "Ошибка значений высоты и/или ширины. Допустимые значения от 1 до 50 включительно."};
     if(typeof height != "number" || typeof width != "number" || typeof char != "string") return {status: 'failed', reason: "Не верные параметры функции. createCheeseBoard(height(type:Number), width(type:Number), char(type:String))."};
-    if(char == '') return {status: "failed", reason: "Аргумент char не может біть пустым"};
+    if(char == '') return {status: "failed", reason: "Аргумент char не может быть пустым"};
     let h = Math.abs(Math.floor(height));
     let w = Math.abs(Math.floor(width));
     let c = char[0];

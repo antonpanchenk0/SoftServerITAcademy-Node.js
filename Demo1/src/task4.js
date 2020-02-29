@@ -5,9 +5,9 @@
  */
 function checkPolindrome(str) {
     if(isNaN(Number(str))) return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
+    str = str.toString();
     if(str.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};
     if(!Number.isInteger(+str)) return {status: 'failed', reason: 'Число должно быть целым!'};
-    str = str.toString();
     let res = finder(str);
     res = res.split('$');
     res.pop();

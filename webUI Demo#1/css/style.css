@@ -1,128 +1,16 @@
 *, head, body{margin: 0; padding: 0; text-decoration: none; outline: none; box-sizing: border-box; list-style: none; font-family: 'Roboto'}
-.wrap{
-    width: 80%;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.wrap .move{
-    width: 10%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.wrap .move-btn{
-    outline: none;
-    background: black;
-    color: #ffffff;
-    transition: .5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 25px;
-    border-radius: 10%;
-}
-.wrap .move-btn:hover{
-    font-size: 24px;
-    height: 35px;
-    width: 35px;
-}
-.wrap .wrap-window{
-    width: 90%;
-    height: 90%;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 5px;
-}
-.wrap .wrap-window .task{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-.wrap .wrap-window .task .task-title{
+.card-title{
+    color: #0c5460;
     font-size: 32px;
-    color: #ff9937;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
 }
-.wrap .wrap-window .task .task-description{
-    font-size: 21px;
-    color: #1e1b1f;
-    font-weight: bold;
-    text-align: center;
+.card-description{
+    color: #1b1e21;
+    font-size: 24px;
 }
-.wrap .wrap-window .data-block{
-    width: 100%;
-    height: auto;
-    margin: 15px 0;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.card-footer-text{
+    font-size: 26px;
+    color: #ffc107;
 }
-.wrap .wrap-window .data-block .input-row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    margin: 15px 0;
-}
-.wrap .wrap-window .data-block .input-row .input-title{
+pre{
     font-size: 18px;
-    color: #000;
-    font-weight: lighter;
-    margin-right: 25px;
-}
-.wrap .wrap-window .data-block .input-row .input-for-data{
-    border: none;
-    border-bottom: 2px solid black;
-    padding: 2px;
-    color: #1f1f1f;
-    font-weight: bold;
-}
-.wrap .wrap-window button{
-    font-size: 16px;
-    color: #ffffff;
-    background: #1f1f1f;
-    border-radius: 5px;
-    border: 2px solid #1f1f1f;
-    padding: 10px;
-    transition: 0.5s;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.wrap .wrap-window button:hover{
-    color: #1f1f1f;
-    background: #ffffff;
-    cursor: pointer;
-}
-.wrap .wrap-window .result-block{
-    margin-top: 15px;
-    width: 100%;
-    height: auto;
-    border-top: 2px solid black;
-    padding: 5px;
-}
-.wrap .wrap-window .result-block h3{
-    font-size: 21px;
-    color: #1f1f1f;
-    font-weight: bold;
-    text-align: left;
-}
-.wrap .wrap-window .result-block .function-result{
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
 }
