@@ -19,7 +19,7 @@ export function fibRow(obj) {
     }
 
     /**
-     * Рекурсиваня функция для подсчета ряда Фибоначчи
+     * Рекурсивная функция для подсчета ряда Фибоначчи
      * @param obj объект описывающий какие числа Фибоначчи на нужны. {min: Number, max: Number} или {length: Number}. length - длина числа Фибоначчи
      * @param fibArr массив с числами
      * @returns {Array}

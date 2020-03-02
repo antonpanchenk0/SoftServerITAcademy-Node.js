@@ -3,12 +3,13 @@
  * @param str число из которого будем вычислять полиндромы
  * @returns {string|{reason: string, status: string}}
  */
-export function checkPolindrome(str) {
-    if(isNaN(Number(str))) return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
-    str = str.toString();
-    if(str.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};
-    if(!Number.isInteger(+str)) return {status: 'failed', reason: 'Число должно быть целым!'};
-    let res = finder(str);
+export function checkPolindrome(num) {
+    if(isNaN(Number(num))) return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
+    num = Math.abs(num);
+    num = num.toString();
+    if(num.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};
+    if(!Number.isInteger(+num)) return {status: 'failed', reason: 'Число должно быть целым!'};
+    let res = finder(num);
     res = res.split('$');
     res.pop();
     res.sort((a,b)=>{
@@ -20,21 +21,21 @@ export function checkPolindrome(str) {
 /**
  * Функция поиска полиндромов
  * Вовзращяет сроку со всеми найдеными полиндромами разделенными $
- * @param str
+ * @param num
  * @param res
  * @returns {string}
  */
-function finder(str, res = ''){
+function finder(num, res = ''){
     let tempPosition = [];
     let findPolindrome = '';
-    for(let i =0; i < str.length - 1; i++){
-        if(str[i] == str[i+1]){
-            for(let j = 0; i-j >= 0 && i+j+1 <= str.length; j++){
-                if(str[i-j] == str[i+j+1]){
+    for(let i =0; i < num.length - 1; i++){
+        if(num[i] == num[i+1]){
+            for(let j = 0; i-j >= 0 && i+j+1 <= num.length; j++){
+                if(num[i-j] == num[i+j+1]){
                     tempPosition = [i-j, i+j+1];
                 } else{
-                    findPolindrome = str.split('').splice(tempPosition[0], tempPosition[1] - tempPosition[0] + 1).join('');
-                    str = str.replace(findPolindrome, '');
+                    findPolindrome = num.split('').splice(tempPosition[0], tempPosition[1] - tempPosition[0] + 1).join('');
+                    num = num.replace(findPolindrome, '');
                     res += `${findPolindrome}$`;
                     break;
                 }
