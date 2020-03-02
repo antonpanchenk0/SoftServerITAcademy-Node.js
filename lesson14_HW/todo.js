@@ -3,34 +3,24 @@ const dom = {
     inp: document.querySelector('#inpToDo'),
     ul: document.querySelector('#todoList'),
 };
-const data = JSON.parse(localStorage.getItem('todo'));
-if(data){
-    data.reverse();
-    data.forEach(item=>{
-        const node = document.createElement('li');
-        node.innerText = item.value;
-        node.setAttribute('data-id', `${item.id}`);
-        node.addEventListener('click', e=>switchStatus(e));
-        if(item.status){
-            node.classList.add('checked');
-        }
-        dom.ul.appendChild(node);
-    })
-}
+(function onLoad(){
+    const data = JSON.parse(localStorage.getItem('todo'));
+    if(data){
+        data.reverse();
+        data.forEach(item=>{
+            createListNode(item.id, item.value, item.isChecked, 'beforeend');
+        })
+    }
+})();
 dom.btn.addEventListener('click', function (e) {
-    e.preventDefault();
     const data = JSON.parse(localStorage.getItem('todo')) || [];
-    const node = document.createElement('li');
-    node.innerText = dom.inp.value;
     let id = data.length != 0 ? data.length : 0;
-    node.setAttribute('data-id', `${id}`);
-    node.addEventListener('click', e=>switchStatus(e));
-    dom.ul.insertAdjacentElement('afterbegin', node);
+    createListNode(id, dom.inp.value, false, 'afterbegin');
     data.push(
         {
             id: id,
             value: dom.inp.value,
-            status: false,
+            isChecked: false,
         });
     localStorage.setItem('todo', JSON.stringify(data));
     dom.inp.value = '';
@@ -41,20 +31,28 @@ function switchStatus(e) {
     _this.classList.add('checked');
     dom.ul.removeChild(_this);
     dom.ul.insertAdjacentElement('beforeend', _this);
-    let id = _this.getAttribute('data-id');
+    let id = _this.dataset.id;
     const data = JSON.parse(localStorage.getItem('todo'));
     const dataLength  = data.length;
+    let delData;
     for(let i =0; i < dataLength; i++){
         if(data[i].id == Number(id)){
-            data.splice(i, 1);
+            delData = data.splice(i, 1);
             break;
         }
     }
-    data.unshift({
-        id: id,
-        value: _this.textContent,
-        status: true,
-    });
-    console.log(data)
+    delData[0].isChecked = true;
+    data.unshift(delData[0]);
     localStorage.setItem('todo', JSON.stringify(data));
+}
+
+function createListNode(id, text, isChecked, appendPosition) {
+    const node = document.createElement('li');
+    node.innerText = text;
+    node.setAttribute('data-id', `${id}`);
+    node.addEventListener('click', e=>switchStatus(e));
+    if(isChecked){
+        node.classList.add('checked');
+    }
+    dom.ul.insertAdjacentElement(appendPosition, node);
 }
