@@ -6,7 +6,7 @@
  * @returns {string|{reason: string, status: string}}
  */
 export function createCheeseBoard(height, width, char) {
-    if(arguments.length != 3) return {status: 'failed', reason: "Не верные параметры функции. createCheeseBoard(height, width, char)."};
+    if(arguments.length < 3) return {status: 'failed', reason: "Не верные параметры функции. createCheeseBoard(height, width, char)."};
     if(Math.abs(width) > 50 || width == 0 || Math.abs(height) > 50 || height == 0) return {status: 'failed', reason: "Ошибка значений высоты и/или ширины. Допустимые значения от 1 до 50 включительно."};
     if(typeof height != "number" || typeof width != "number" || typeof char != "string") return {status: 'failed', reason: "Не верные параметры функции. createCheeseBoard(height(type:Number), width(type:Number), char(type:String))."};
     if(char == '') return {status: "failed", reason: "Аргумент char не может быть пустым"};

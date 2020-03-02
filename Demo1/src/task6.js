@@ -5,6 +5,7 @@
  * @returns {string|{reason: string, status: string}}
  */
 export function getNumbers(length, pow) {
+    if(arguments.length < 2) return {status: 'failed', reason: "Не верные параметры функции. getNumbers(length: number, pow: number)."};
     if(!length || !pow) return {status: 'failed', reason: 'Не корректные данные. length: number, pow: number'};
     if(typeof length != "number" || typeof pow != "number") return {status: 'failed', reason: 'Не корректные данные. length: number, pow: number'};
     if(pow < 0) return {status: 'failed', reason: 'Не корректные данные. Минимальный кварат не может быть меньше 0.'};

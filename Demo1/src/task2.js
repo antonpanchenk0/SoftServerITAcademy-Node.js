@@ -5,6 +5,7 @@
  * @returns {{reason: string, status: string}|number}
  */
 export function rectangleInRectangle(rectangle_1, rectangle_2) {
+    if(arguments.length < 2) return {status: 'failed', reason: "Не верные параметры функции. rectangleInRectangle(rectangle_1, rectangle_2)."};
     //Проверка на то, являеется ли переданные параметры объектами
     if(typeof rectangle_1 != "object" || typeof rectangle_2 != "object") return {status: 'failed', reason: "Не верные параметры функции. rectangleInRectangle(rectangle_1(type: object), rectangle_2(type: object)"};
     //Проверка все ли данные о конвертах получены (ширина и высота)
