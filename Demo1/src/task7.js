@@ -3,7 +3,7 @@
  * @param obj объект описывающий какие числа Фибоначчи на нужны. {min: Number, max: Number} или {length: Number}. length - длина числа Фибоначчи
  * @returns {Array|{reason: string, status: string}}
  */
-function fibRow(obj) {
+export function fibRow(obj) {
     const keys = Object.keys(obj);
     //Если у объета более 2 ключей - ошибка
     if(keys.length > 2) return {status: 'failed', reason: 'Не корректный аргумент функции. fibRow({min: Number, max: Number} || {length: Number})'};

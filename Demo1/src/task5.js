@@ -4,7 +4,7 @@
  * @param obj
  * @returns {{reason: string, status: string}|{winner: undefined, hardCount: number, simpleCount: number}}
  */
-function getLuckyTicket(obj){
+export function getLuckyTicket(obj){
     if(isNaN(Number(obj.max)) || isNaN(Number(obj.min))) return {status: 'failed', reason: "Ошибка данных. Строка содержит символы. obj{min:number, max:number}"};
     if(Number(obj.max) < Number(obj.min)) return {status: 'failed', reason: 'Ошибка данных. Min значение не может быть больше Max'};
     if(Number(obj.max) == 0 || Number(obj.max) == 0) return {status: 'failed', reason: 'Ошибка данных. Билет не может иметь нулевой номер.'};

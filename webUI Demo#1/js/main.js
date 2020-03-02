@@ -1,3 +1,5 @@
+import {createCheeseBoard} from './modules/task1';
+
 document.querySelectorAll('.nav-link').forEach(item=>{
     item.addEventListener('click', e=>{
         e.preventDefault();

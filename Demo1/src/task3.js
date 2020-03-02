@@ -4,7 +4,7 @@
  * @param arr массив треугольников(obj{vertices: string, verticesName_1: number, verticesName_2: number, verticesName_3: number}
  * @returns {Uint8Array|{reason: string, status: string}}
  */
-function sortTriangle(arr) {
+export function sortTriangle(arr) {
     //Если массив пуст либо мы передали не массив
     if(!arr.length || typeof arr == "string") return {status: 'failed', reason: 'Аргумент не является массивом либо он пуст.'};
 

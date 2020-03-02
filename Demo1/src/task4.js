@@ -3,7 +3,7 @@
  * @param str число из которого будем вычислять полиндромы
  * @returns {string|{reason: string, status: string}}
  */
-function checkPolindrome(str) {
+export function checkPolindrome(str) {
     if(isNaN(Number(str))) return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
     str = str.toString();
     if(str.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};

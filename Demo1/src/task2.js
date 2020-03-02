@@ -4,7 +4,7 @@
  * @param rectangle_2: object{h: number, w: number}
  * @returns {{reason: string, status: string}|number}
  */
-function rectangleInRectangle(rectangle_1, rectangle_2) {
+export function rectangleInRectangle(rectangle_1, rectangle_2) {
     //Если передано больше чем 2 аргумента
     if(arguments.length > 2) return {status: 'failed', reason: 'Большое количество аргументов.'};
     //Проверка на то, являеется ли переданные параметры объектами
