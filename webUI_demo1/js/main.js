@@ -1,4 +1,10 @@
 import {createCheeseBoard} from './modules/task1';
+import {rectangleInRectangle} from './modules/task2';
+import {sortTriangle} from './modules/task3';
+import {checkPolindrome} from './modules/task4';
+import {getLuckyTicket} from './modules/task5';
+import {getNumbers} from './modules/task6';
+import {fibRow} from './modules/task7';
 
 document.querySelectorAll('.nav-link').forEach(item=>{
     item.addEventListener('click', e=>{
