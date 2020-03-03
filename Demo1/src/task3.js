@@ -5,12 +5,16 @@
  * @returns {Uint8Array|{reason: string, status: string}}
  */
 export function sortTriangle(arr) {
+    //Есди нет аргументов в функции
+    if(arguments.length < 1) return {status: 'failed', reason: 'Не достаточное количество аргументов.'};
     //Если массив пуст либо мы передали не массив
-    if(!arr.length || typeof arr == "string") return {status: 'failed', reason: 'Аргумент не является массивом либо он пуст.'};
+    if(!arr.length && isNaN(arr) || typeof arr == "string" || !arr.length) return {status: 'failed', reason: 'Аргумент не является массивом либо он пуст.'};
 
     //Если в массиве 1 треугольник, проверка правильности вершин
     if(arr.length == 1){
+        if(!arr[0].vertices) return {status: 'failed', reason: 'Не верные ключи объекта. [{vertices: ABC, a: Number, b: Number, c: Number}]'};
         let verArr = arr[0].vertices.toLowerCase().split('');
+        if(verArr.length > 3 || verArr.length < 3) return {status: 'failed', reason: 'В треугольнике больше или меньше чем 3 вершины!'};
         for(let v in arr[0]){
             if(v != 'vertices') {
                 if (typeof arr[0][v] != "number" || !arr[0][v]) return {status: 'failed', reason: 'Значения верншин должны быть числами и больше 0!'};
@@ -23,6 +27,7 @@ export function sortTriangle(arr) {
     //Если в массиве несколько треугольников, проверяем правильность вершин для каждого треугольника
     for(let i = 0; i < arr.length; i++){
         for (let j = i + 1; j < arr.length; j++){
+            if(!arr[i].vertices) return {status: 'failed', reason: 'Не верные ключи объекта. [{vertices: ABC, a: Number, b: Number, c: Number}]'};
             let verArr = arr[i].vertices.toLowerCase().split('');
             if(verArr.length > 3 || verArr.length < 3) return {status: 'failed', reason: 'В треугольнике больше или меньше чем 3 вершины!'};
             if(verArr[0] == verArr[1] || verArr[1] == verArr[2] || verArr[2] == verArr[0]) return {status: 'failed', reason: 'В треугольнике две вершины с одинаковыми именами!'};
