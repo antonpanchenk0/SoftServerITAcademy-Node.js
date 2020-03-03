@@ -7,7 +7,7 @@
 export function rectangleInRectangle(rectangle_1, rectangle_2) {
     if(arguments.length < 2) return {status: 'failed', reason: "Не верные параметры функции. rectangleInRectangle(rectangle_1, rectangle_2)."};
     //Проверка на то, являеется ли переданные параметры объектами
-    if(typeof rectangle_1 != "object" || typeof rectangle_2 != "object") return {status: 'failed', reason: "Не верные параметры функции. rectangleInRectangle(rectangle_1(type: object), rectangle_2(type: object)"};
+    if(typeof rectangle_1 != "object" || typeof rectangle_2 != "object" || !rectangle_1 || !rectangle_2 || rectangle_1.length || rectangle_2.length) return {status: 'failed', reason: "Не верные параметры функции. rectangleInRectangle(rectangle_1(type: object), rectangle_2(type: object)"};
     //Проверка все ли данные о конвертах получены (ширина и высота)
     if(rectangle_1['h'] == undefined || rectangle_2['h'] == undefined || rectangle_1['w'] == undefined || rectangle_2['w'] == undefined) return {status: "failed", reason: 'Неверные ключи у объекта - параметра функции. obj{ w: Number, h: Number }.'};
     if(isNaN(rectangle_1['h']) || isNaN(rectangle_2['h'])  || isNaN(rectangle_1['w'])  || isNaN(rectangle_2['w']) ) return {status: "failed", reason: 'Неверные ключи у объекта - параметра функции. obj{ w: Number, h: Number }.'};
