@@ -31,6 +31,9 @@ export function testGetLuckyTicket(ass) {
             it('Undefined as function argument', ()=>{
                 ass.deepEqual(getLuckyTicket(undefined), {status: 'failed', reason: "Ошибка данных. obj{min:number, max:number}"});
             });
+            it('Number as function argument', ()=>{
+                ass.deepEqual(getLuckyTicket(322), {status: 'failed', reason: "Ошибка данных. obj{min:number, max:number}"});
+            });
             it('Null as function argument', ()=>{
                 ass.deepEqual(getLuckyTicket(null), {status: 'failed', reason: "Ошибка данных. obj{min:number, max:number}"});
             });

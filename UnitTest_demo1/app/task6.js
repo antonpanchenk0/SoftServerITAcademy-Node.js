@@ -6,14 +6,14 @@
  */
 export function getNumbers(length, pow) {
     if(arguments.length < 2) return {status: 'failed', reason: "Не верные параметры функции. getNumbers(length: number, pow: number)."};
-    if(!length || !pow) return {status: 'failed', reason: 'Не корректные данные. length: number, pow: number'};
+    if(isNaN(length) || isNaN(pow)) return {status: 'failed', reason: 'Не корректные данные. length: number, pow: number'};
     if(typeof length != "number" || typeof pow != "number") return {status: 'failed', reason: 'Не корректные данные. length: number, pow: number'};
     if(pow < 0) return {status: 'failed', reason: 'Не корректные данные. Минимальный кварат не может быть меньше 0.'};
     let num = Math.sqrt(pow);
     if(!Number.isInteger(num)) return {status: 'failed', reason: `Квадрат ${pow}, не является квадратом натурального числа.`};
     const count = num + Math.abs(length) + 1;
     let res = '';
-    for(let i = num + 1; i < count; i++){
+    for(let i = num; i < count; i++){
         res += `${i} `;
     };
     res = res.substring(0, res.length -1);
