@@ -4,11 +4,12 @@
  * @returns {string|{reason: string, status: string}}
  */
 export function checkPolindrome(num) {
-    if(isNaN(Number(num))) return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
+    if(!arguments.length) return {status: 'failed', reason: 'Не верные аргументы функции. checkPolyndrom(Number)'};
+    if(isNaN(Number(num)) || typeof num != "number") return {status: 'failed', reason: 'Аргумент не является числом. checkPolyndrom(Number)'};
+    if(!Number.isInteger(num)) return {status: 'failed', reason: 'Число должно быть целым!'};
     num = Math.abs(num);
     num = num.toString();
     if(num.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};
-    if(!Number.isInteger(+num)) return {status: 'failed', reason: 'Число должно быть целым!'};
     let res = finder(num);
     res = res.split('$');
     res.pop();
