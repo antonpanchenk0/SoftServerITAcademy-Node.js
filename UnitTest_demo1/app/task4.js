@@ -11,8 +11,7 @@ export function checkPolindrome(num) {
     num = num.toString();
     if(num.length < 2) return {status: 'failed', reason: 'Число не может быть меньше 10.'};
     let res = finder(num);
-    res = res.split('$');
-    res.pop();
+    if(!res.length) return 'Полиндром не найден!';
     res.sort((a,b)=>{
         return a.length <= b.length ? 1 : -1;
     });
@@ -26,7 +25,7 @@ export function checkPolindrome(num) {
  * @param res
  * @returns {string}
  */
-function finder(num, res = ''){
+function finder(num, res = []){
     let tempPosition = [];
     let findPolindrome = '';
     for(let i =0; i < num.length - 1; i++){
@@ -34,12 +33,14 @@ function finder(num, res = ''){
             for(let j = 0; i-j >= 0 && i+j+1 <= num.length; j++){
                 if(num[i-j] == num[i+j+1]){
                     tempPosition = [i-j, i+j+1];
-                } else{
-                    findPolindrome = num.split('').splice(tempPosition[0], tempPosition[1] - tempPosition[0] + 1).join('');
-                    num = num.replace(findPolindrome, '');
-                    res += `${findPolindrome}$`;
+                } else {
                     break;
                 }
+            }
+            if(tempPosition.length == 2){
+                findPolindrome = num.split('').splice(tempPosition[0], tempPosition[1] - tempPosition[0] + 1).join('');
+                num = num.replace(findPolindrome, '');
+                res.push(findPolindrome);
             }
             tempPosition = [];
             findPolindrome = '';

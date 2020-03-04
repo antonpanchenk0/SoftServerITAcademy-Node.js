@@ -21,13 +21,16 @@ export function testCheckPolindrome(ass) {
             ass.equal(checkPolindrome(2212345665432147), '123456654321');
         });
         it('Function with number where 2 polindroms', ()=>{
-            ass.equal(checkPolindrome(21551254212345665432147), '123456654321');
+            ass.equal(checkPolindrome(21551254212345665432147), '1551');
         });
         it('Function with number where 1 polindrom in start of number', ()=>{
             ass.equal(checkPolindrome(12345665432147), '123456654321');
         });
         it('Function with number where 1 polindrom in end of number', ()=>{
             ass.equal(checkPolindrome(47123456654321), '123456654321');
+        });
+        it('Function with number where not  polindroms', ()=>{
+            ass.equal(checkPolindrome(1234567890), 'Полиндром не найден!');
         });
         describe('Function with incorrect data in funcrion argument', ()=>{
             it('Undefined as argument', ()=>{
