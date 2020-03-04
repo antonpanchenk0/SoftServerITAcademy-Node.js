@@ -6,7 +6,9 @@
  */
 export function getLuckyTicket(obj){
     if(!arguments.length) return {status: 'failed', reason: 'Отсутствуют аргументы функции. getLuckyTicket({min: humber, max: number})'};
-    if(isNaN(Number(obj.max)) || isNaN(Number(obj.min))) return {status: 'failed', reason: "Ошибка данных. Строка содержит символы. obj{min:number, max:number}"};
+    if(typeof obj != "object" || obj == null || obj.length) return {status: 'failed', reason: "Ошибка данных. obj{min:number, max:number}"};
+    if(typeof obj.min != "number" || typeof obj.max != "number") return {status: 'failed', reason: "Ошибка данных. obj{min:number, max:number}"};
+    if(isNaN(Number(obj.max)) || isNaN(Number(obj.min))) return {status: 'failed', reason: "Ошибка данных. obj{min:number, max:number}"};
     if(Number(obj.max) < Number(obj.min)) return {status: 'failed', reason: 'Ошибка данных. Min значение не может быть больше Max'};
     if(Number(obj.max) == 0 || Number(obj.max) == 0) return {status: 'failed', reason: 'Ошибка данных. Билет не может иметь нулевой номер.'};
     if(obj.max.toString().length > 6 || obj.min.toString().length > 6) return {status : 'failed', reason: 'Ошибка данных. Длина номера билета не может быть более чем 6 цифер.'};
@@ -15,8 +17,8 @@ export function getLuckyTicket(obj){
         simpleCount: 0,
         hardCount: 0,
     };
-    const min = Math.abs(Number(obj.min));
-    const max = Math.abs(Number(obj.max));
+    const min = Math.floor(Math.abs(Number(obj.min)));
+    const max = Math.floor(Math.abs(Number(obj.max)));
 
     for(let i = min; i <= max; i++){
         //Hard Count method
