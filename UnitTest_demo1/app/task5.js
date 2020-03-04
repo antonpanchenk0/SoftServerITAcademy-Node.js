@@ -5,6 +5,7 @@
  * @returns {{reason: string, status: string}|{winner: undefined, hardCount: number, simpleCount: number}}
  */
 export function getLuckyTicket(obj){
+    if(!arguments.length) return {status: 'failed', reason: 'Отсутствуют аргументы функции. getLuckyTicket({min: humber, max: number})'};
     if(isNaN(Number(obj.max)) || isNaN(Number(obj.min))) return {status: 'failed', reason: "Ошибка данных. Строка содержит символы. obj{min:number, max:number}"};
     if(Number(obj.max) < Number(obj.min)) return {status: 'failed', reason: 'Ошибка данных. Min значение не может быть больше Max'};
     if(Number(obj.max) == 0 || Number(obj.max) == 0) return {status: 'failed', reason: 'Ошибка данных. Билет не может иметь нулевой номер.'};
