@@ -24,14 +24,19 @@ app.use((req, res, next)=>{
     next();
 });
 
-app.get('/name', (req, res, next)=>{
-    console.log('HTTP method', req.method);
-    req.table = 'Some table';
-    next();
-}, (req, res, next)=>{
-    res.send('Hello');
-}, (err, req, res ,next)=>{
 
+
+
+app.put('/cats/:id/account/:accountID', (req, res, next)=>{
+    console.log(req.params);
+    res.statusCode = 200;
+    res.setHeader("User", 'Some User');
+    res.json({
+        params: req.params,
+        queryObject: req.query,
+        body: req.body,
+        headers: req.headers
+    });
 });
 
 app.use('/users', usersRouter);
