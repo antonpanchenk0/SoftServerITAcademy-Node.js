@@ -1,0 +1,14 @@
+{
+  "db": {
+    "name": "testapp",
+    "user": "root",
+    "password": "root",
+    "host": "localhost",
+    "port": 50619,
+    "dialect": "postgres"
+  },
+  "auth": {
+    "secretOrKey": "some-secret",
+    "expiresIn": 360000
+  }
+}
