@@ -8,6 +8,9 @@ export class PokemonCheckerController{
     }
 
     handleClickCheckPokemon(){
-        this.model.checkCurrentPokemon(this.view.input.value).then(data=>this.view.render(data));
+        this.model.checkCurrentPokemon(this.view.input.value.toLowerCase()).then(data=>{
+            console.log(data)
+            this.view.render(data);
+        });
     }
 }

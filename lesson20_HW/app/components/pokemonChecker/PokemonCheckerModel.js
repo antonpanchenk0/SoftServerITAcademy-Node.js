@@ -13,6 +13,10 @@ export class PokemonCheckerModel{
             .then(data=>{
                 data ? this.data.pokemons.push(name): this.data.frameworks.push(name);
                 return this.data;
+            })
+            .catch(err =>{
+                this.data.frameworks.push(name)
+                return this.data;
             });
     }
 }
